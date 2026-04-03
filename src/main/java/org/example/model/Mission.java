@@ -8,7 +8,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import java.util.List;
 
 @JacksonXmlRootElement(localName = "mission")
-@JsonIgnoreProperties(ignoreUnknown = true) // Игнорируем неизвестные поля при парсинге
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Mission {
     @JsonProperty("missionId")
     @JacksonXmlProperty(localName = "missionId")
