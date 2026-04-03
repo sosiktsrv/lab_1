@@ -17,7 +17,6 @@ public class TxtMissionParser implements MissionParser {
     @Override
     public Mission parse(File file) throws InvalidMissionFormatException {
         try {
-            // Загружаем конфигурацию из TXT файла
             PropertiesConfiguration config = new PropertiesConfiguration();
 
             FileHandler fileHandler = new FileHandler(config);
@@ -26,24 +25,22 @@ public class TxtMissionParser implements MissionParser {
 
             Mission mission = new Mission();
 
-            // Основные поля
             mission.setMissionId(config.getString("missionId"));
             mission.setDate(config.getString("date"));
             mission.setLocation(config.getString("location"));
             mission.setOutcome(config.getString("outcome"));
             mission.setDamageCost(config.getLong("damageCost", 0L));
 
-            // Дополнительные поля
             mission.setNote(config.getString("note"));
             mission.setComment(config.getString("comment"));
 
-            // Проклятие
+            //проклятия
             Curse curse = new Curse();
             curse.setName(config.getString("curse.name"));
             curse.setThreatLevel(config.getString("curse.threatLevel"));
             mission.setCurse(curse);
 
-            // Маги - автоматическое определение количества
+            //маги
             List<Sorcerer> sorcerers = new ArrayList<>();
             int sorcererIndex = 0;
             while (config.containsKey("sorcerer[" + sorcererIndex + "].name")) {
@@ -55,7 +52,7 @@ public class TxtMissionParser implements MissionParser {
             }
             mission.setSorcerers(sorcerers);
 
-            // Техники - автоматическое определение количества
+            //техники
             List<Technique> techniques = new ArrayList<>();
             int techniqueIndex = 0;
             while (config.containsKey("technique[" + techniqueIndex + "].name")) {

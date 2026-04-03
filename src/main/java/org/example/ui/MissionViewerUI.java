@@ -94,10 +94,8 @@ public class MissionViewerUI extends JFrame {
                     return;
                 }
 
-                // Парсим файл
                 currentMission = parser.parse(selectedFile);
 
-                // Показываем информацию
                 showMissionInfo();
 
             } catch (InvalidMissionFormatException e) {

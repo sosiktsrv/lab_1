@@ -44,7 +44,6 @@ public class Mission {
     @JacksonXmlProperty(localName = "technique")
     private List<Technique> techniques;
 
-    // Дополнительные поля (могут быть в разных форматах)
     @JsonProperty("note")
     @JacksonXmlProperty(localName = "note")
     private String note;
@@ -53,7 +52,6 @@ public class Mission {
     @JacksonXmlProperty(localName = "comment")
     private String comment;
 
-    // Конструкторы
     public Mission() {}
 
     public Mission(String missionId, String date, String location, String outcome,
@@ -71,7 +69,6 @@ public class Mission {
         this.comment = comment;
     }
 
-    // Геттеры и сеттеры для всех полей
     public String getMissionId() { return missionId; }
     public void setMissionId(String missionId) { this.missionId = missionId; }
 
@@ -102,7 +99,6 @@ public class Mission {
     public String getComment() { return comment; }
     public void setComment(String comment) { this.comment = comment; }
 
-    // Вспомогательный метод для получения любого дополнительного текста
     public String getAdditionalInfo() {
         if (note != null && !note.isEmpty()) {
             return note;

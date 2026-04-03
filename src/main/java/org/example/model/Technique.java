@@ -29,7 +29,6 @@ public class Technique {
         this.damage = damage;
     }
 
-    // Геттеры и сеттеры
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
